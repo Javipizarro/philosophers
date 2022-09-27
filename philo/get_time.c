@@ -1,27 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_data.c                                        :+:      :+:    :+:   */
+/*   get_time.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jpizarro <jpizarro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/19 17:49:01 by jpizarro          #+#    #+#             */
-/*   Updated: 2022/09/22 15:35:21 by jpizarro         ###   ########.fr       */
+/*   Created: 2022/09/22 14:56:32 by jpizarro          #+#    #+#             */
+/*   Updated: 2022/09/22 15:33:18 by jpizarro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-void	init_data(t_data *data, int argc, char *argv[])
+int	get_time(t_data *data)
 {
-	if (gettimeofday(&data->start_time, NULL) < 0)
-		print_error(NULL, SETTIME);
-	data->philo_num = ft_atoi(argv[1]);
-	data->die_time = ft_atoi(argv[2]);
-	data->eat_time = ft_atoi(argv[3]);
-	data->sleep_time = ft_atoi(argv[4]);
-	if (argc == 6)
-		data->meals = ft_atoi(argv[5]);
-	else
-		data->meals = 0;
+	if (gettimeofday(&data->end_time, NULL) < 0)
+		print_error(data, SETTIME);
+	return (data->start_time.tv_usec - data->end_time.tv_usec);
 }

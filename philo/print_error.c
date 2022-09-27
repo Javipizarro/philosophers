@@ -6,7 +6,7 @@
 /*   By: jpizarro <jpizarro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/19 17:42:53 by jpizarro          #+#    #+#             */
-/*   Updated: 2022/09/20 21:49:53 by jpizarro         ###   ########.fr       */
+/*   Updated: 2022/09/22 13:50:00 by jpizarro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 void	print_error(t_data *data, int error)
 {
 	if (error == ARGNUM)
-		printf("The argument number must be 5 or 6\n");
+		printf("The argument number must be 4 or 5\n");
 	else if (error == ARGDIG)
-		printf("The arguments must contain only by digits\n");
+		printf("The arguments must contain only digits\n");
 	else if (error == ARGINT)
 		printf("The arguments must be integers above 0 and below 2147483647\n");
 	else if (error == SETTIME)

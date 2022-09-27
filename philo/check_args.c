@@ -6,11 +6,15 @@
 /*   By: jpizarro <jpizarro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/19 17:39:42 by jpizarro          #+#    #+#             */
-/*   Updated: 2022/09/20 21:42:57 by jpizarro         ###   ########.fr       */
+/*   Updated: 2022/09/22 15:05:13 by jpizarro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
+
+/*
+**	Verifies whether the arguments are valid.
+*/
 
 void	check_args(int argc, char *argv[])
 {

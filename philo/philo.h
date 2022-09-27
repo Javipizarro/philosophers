@@ -6,7 +6,7 @@
 /*   By: jpizarro <jpizarro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/19 13:40:49 by jpizarro          #+#    #+#             */
-/*   Updated: 2022/09/21 01:48:13 by jpizarro         ###   ########.fr       */
+/*   Updated: 2022/09/22 15:23:39 by jpizarro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,10 @@
 
 typedef struct	s_data
 {
-	struct timeval	*start_time;
+//	struct timeval	*start_time;
+//	struct timeval	*end_time;
+	struct timeval	start_time;
+	struct timeval	end_time;
 	int				philo_num;
 	int				die_time;
 	int				eat_time;
@@ -55,8 +58,10 @@ int		ft_atoi(char const *str);
 int		ft_strisdigit(char *str);
 size_t	ft_strlen(const char *s);
 int		ft_strcmp(const char *s1, const char *s2);
+int		get_time(t_data *data);
 void	init_data(t_data *data, int argc, char *argv[]);
 void	exit_philo(t_data *data);
 void	print_error(t_data *data, int error);
 
+// Functions on trial
 #endif
