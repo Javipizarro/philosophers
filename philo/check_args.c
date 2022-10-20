@@ -6,7 +6,7 @@
 /*   By: jpizarro <jpizarro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/19 17:39:42 by jpizarro          #+#    #+#             */
-/*   Updated: 2022/09/22 15:05:13 by jpizarro         ###   ########.fr       */
+/*   Updated: 2022/10/20 21:25:57 by jpizarro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	check_args(int argc, char *argv[])
 			print_error(NULL, ARGINT);
 		if (ft_strlen(argv[i]) == 1 && argv[i][0] == '0')
 			print_error(NULL, ARGINT);
-		if (ft_strlen(argv[i]) == 10 && ft_strcmp(argv[i], "2147483647") < 0)
+		if (ft_strlen(argv[i]) == 10 && ft_strcmp(argv[i], "2147483647") > 0)
 			print_error(NULL, ARGINT);
 	}
 	

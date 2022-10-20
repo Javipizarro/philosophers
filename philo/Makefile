@@ -6,7 +6,7 @@
 #    By: jpizarro <jpizarro@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/19 11:24:00 by jpizarro          #+#    #+#              #
-#    Updated: 2022/09/21 01:48:13 by jpizarro         ###   ########.fr        #
+#    Updated: 2022/10/20 21:29:27 by jpizarro         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,11 +14,11 @@
 
 NAME = philo
 
-SRC = .
-OBJ = obj
+SRCS =	$(wildcard *.c) $(wildcard utils/*.c)
 
-SRCS = $(wildcard $(SRC)/*.c) $(wildcard $(SRC)/utils/*.c)
-OBJS = $(OBJ)/$(SRCS:.c=.o)
+OBJS = $(SRCS:.c=.o)
+
+#STATICS = $(LIBS:.h=.a)
 
 CC = gcc
 
@@ -26,33 +26,35 @@ RM = rm -f
 
 #CFLAGS = -Wall -Werror -Wextra
 CFLAGS = -Wall -Werror -Wextra -g
-PFLAGS = -pthread
 
 all: $(NAME)
 
 $(NAME): $(OBJS) $(STATICS)
 	@echo "Creating $@"
-	@$(CC) $(CFLAGS) $(PFLAGS) $(OBJS) -o $@
+	@$(CC) $(CFLAGS) $(OBJS) $(STATICS) -o $@
 	@echo "$@ is ready!"
 
-$(OBJ)/%.o: $(SRC)/%.c
-	@$(CC) $(CFLAGS) $(PFLAGS) -c $< -o $@
-	
+%.o: %.c
+	@$(CC) $(CFLAGS) $(CPPFLAGS) -c $< -o $(<:.c=.o)
+
+#$(STATICS):
+#	cd libft/ && $(MAKE)
+#	cd pipex/ && $(MAKE)
+#	@make -sC ./libft
+
 clean:
 	@echo "Cleaing up binary files"
 	@$(RM) $(OBJS)
 
 fclean: clean
-	@echo "also $(NAME)"
+	@echo "also $(NAME) and debug files"
 	@$(RM) $(NAME) debug
 	@$(RM) $(wildcard srcs/*.o)
 	@$(RM) $(wildcard *.out)
 
 re: fclean all
 
-show:
-	@echo "SRCS $(SRCS)"
-	@echo "OBJS $(OBJS)"
-	@echo "LIBS $(LIBS)"
-	@echo "STATICS $(STATICS)"
-	
+git: clean
+	git add .
+	git commit -m "$m"
+	git push
