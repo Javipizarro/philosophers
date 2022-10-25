@@ -1,23 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free_data.c                                        :+:      :+:    :+:   */
+/*   eat.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jpizarro <jpizarro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/19 17:48:07 by jpizarro          #+#    #+#             */
-/*   Updated: 2022/10/25 22:42:57 by jpizarro         ###   ########.fr       */
+/*   Created: 2022/10/25 20:50:07 by jpizarro          #+#    #+#             */
+/*   Updated: 2022/10/25 23:03:01 by jpizarro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-void	free_data(t_data *data, t_philo *philos)
+void	eat(t_philo *philo)
 {
-	if (philos)
-		free(philos);
-	if (data->spoons)
-		free(data->spoons);
-	
-	return;
+	if (philo.id % 2)
+		pthread_mutex_lock(philo.data->spoons[philo.id]);
+	pthread_mutex_lock(philo.data->spoons[(philo.id + 1) % philo.data->guests]);
+	if (!(philo.id % 2))
+		pthread_mutex_lock(philo.data->spoons[philo.id]);
+		check_alive(philo);
+		usleep()
 }

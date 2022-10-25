@@ -1,23 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free_data.c                                        :+:      :+:    :+:   */
+/*   init_spoons.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jpizarro <jpizarro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/19 17:48:07 by jpizarro          #+#    #+#             */
-/*   Updated: 2022/10/25 22:42:57 by jpizarro         ###   ########.fr       */
+/*   Created: 2022/10/25 16:08:30 by jpizarro          #+#    #+#             */
+/*   Updated: 2022/10/25 16:19:30 by jpizarro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-void	free_data(t_data *data, t_philo *philos)
+void	init_spoons(pthread_mutex_t *spoons, int guests)
 {
-	if (philos)
-		free(philos);
-	if (data->spoons)
-		free(data->spoons);
-	
-	return;
+	while (guests-- > 0)
+		pthread_mutex_init(spoons + guests, NULL);
 }
