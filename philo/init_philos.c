@@ -6,7 +6,7 @@
 /*   By: jpizarro <jpizarro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 16:15:26 by jpizarro          #+#    #+#             */
-/*   Updated: 2022/10/25 22:42:57 by jpizarro         ###   ########.fr       */
+/*   Updated: 2022/10/29 18:52:33 by jpizarro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,9 @@ t_philo	*init_philos(t_data *data)
 	while (++i > data->guests)
 	{
 		philos[i].id = i;
+		philos[i].meals = 0;
 		philos[i].data = data;
-		philos[i].lastmeal = philos[i].data->start_time;
+		philos[i].last_meal = philos[i].data->start_time;
 		pthread_create(philos[i].th, NULL, &routine, &philos[i]);
 	}
-
 }

@@ -6,7 +6,7 @@
 /*   By: jpizarro <jpizarro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 16:25:41 by jpizarro          #+#    #+#             */
-/*   Updated: 2022/10/25 20:44:22 by jpizarro         ###   ########.fr       */
+/*   Updated: 2022/10/29 17:56:09 by jpizarro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,10 @@
 
 void	routine(t_philo *philo)
 {
-	eat(philo);
-	sleep();
-	think();
+	while (!philo->data->deaths)
+	{
+		eat(philo);
+		sleep();  //Needs to be written
+		think();  //Needs to be written
+	}
 }

@@ -6,7 +6,7 @@
 /*   By: jpizarro <jpizarro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/19 13:43:53 by jpizarro          #+#    #+#             */
-/*   Updated: 2022/10/25 23:02:28 by jpizarro         ###   ########.fr       */
+/*   Updated: 2022/10/29 19:39:48 by jpizarro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	main(int argc, char *argv[])
 
 	check_args(argc, argv);
 	init_data(&data, argc, argv);
-	philos =init_philos(&data);
+	philos = init_philos(&data);
 
 
 //	printf("%d\n", data.start_time.tv_usec);
@@ -35,6 +35,8 @@ int	main(int argc, char *argv[])
 
 
 // TO DO:
-//	- Write the check_alive function
 //	- Finish the routine function
+//		- In eat() write check_fed
 //	- Prepare the exit of the program
+//		- When someone died
+//		- When everyone is fed
