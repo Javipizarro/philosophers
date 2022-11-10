@@ -1,27 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free_data.c                                        :+:      :+:    :+:   */
+/*   destroy_spoons.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jpizarro <jpizarro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/19 17:48:07 by jpizarro          #+#    #+#             */
-/*   Updated: 2022/11/10 18:36:22 by jpizarro         ###   ########.fr       */
+/*   Created: 2022/11/10 16:17:39 by jpizarro          #+#    #+#             */
+/*   Updated: 2022/11/10 18:05:34 by jpizarro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-int	free_data(t_data *data)
+int	destroy_spoons(pthread_mutex_t *spoons, int guests)
 {
-	int	ret;
-
-	ret = 0;
-	if (destroy_spoons(data->spoons, data->guests))
-		ret = print_error(DESTRSPOONS);
-	if (data->spoons)
-		free(data->spoons);
-	if (pthread_mutex_destroy(&data->printer))
-		ret = print_error(DESTRPRINTER);
-	return (ret);
+	while (guests-- > 0)
+		if(pthread_mutex_destroy(spoons + guests))
+			return (1);
+	return (0);
 }

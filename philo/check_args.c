@@ -6,7 +6,7 @@
 /*   By: jpizarro <jpizarro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/19 17:39:42 by jpizarro          #+#    #+#             */
-/*   Updated: 2022/10/20 21:25:57 by jpizarro         ###   ########.fr       */
+/*   Updated: 2022/11/10 18:36:22 by jpizarro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,23 +16,23 @@
 **	Verifies whether the arguments are valid.
 */
 
-void	check_args(int argc, char *argv[])
+int	check_args(int argc, char *argv[])
 {
 	int i;
 
 	i = 0;
 	if (argc < 5 || argc > 6)
-		print_error(NULL, ARGNUM);
+		return (print_error(ARGNUM));
 	while (++i < argc)
 	{
 		if (!ft_strisdigit(argv[i]))
-			print_error(NULL, ARGDIG);
+			return (print_error(ARGDIG));
 		if (ft_strlen(argv[i]) > 10)	
-			print_error(NULL, ARGINT);
+			return (print_error(ARGINT));
 		if (ft_strlen(argv[i]) == 1 && argv[i][0] == '0')
-			print_error(NULL, ARGINT);
+			return (print_error(ARGINT));
 		if (ft_strlen(argv[i]) == 10 && ft_strcmp(argv[i], "2147483647") > 0)
-			print_error(NULL, ARGINT);
+			return (print_error(ARGINT));
 	}
-	
+	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: jpizarro <jpizarro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/19 13:40:49 by jpizarro          #+#    #+#             */
-/*   Updated: 2022/10/29 19:41:11 by jpizarro         ###   ########.fr       */
+/*   Updated: 2022/11/10 18:40:55 by jpizarro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,13 @@
 # define ARGDIG -4
 # define ARGINT -5
 # define SETTIME -6
+# define INITSPOONS -7
+# define DESTRSPOONS -8
+# define INITPRINTER -9
+# define DESTRPRINTER -10
+# define CREAPHILO -11
+# define ENDPHILO -12
+# define MALLOC -13
 
 // PHILOS STATES DEFINITION
 # define NONE 0
@@ -52,7 +59,7 @@ typedef struct	s_data
 
 typedef struct	s_philo
 {
-	char			id;
+	int				id;
 	pthread_t		th;
 	int				meals;
 	struct timeval	last_meal;
@@ -64,23 +71,29 @@ typedef struct	s_philo
 }				t_philo;
 
 
-void	check_args(int argc, char *argv[]);
+int		check_args(int argc, char *argv[]);
 int		check_alive(t_philo *philo);
+int		check_fed(t_philo *philo);
+int		destroy_spoons(pthread_mutex_t *spoons, int guests);
 void	eat(t_philo *philo);
+int		end_philos(t_philo *philos);
 //void	exit_philo(t_data *data);
-void	free_data(t_data *data, t_philo *philos);
+int		free_data(t_data *data);
 int		ft_atoi(char const *str);
 int		ft_strisdigit(char *str);
 size_t	ft_strlen(const char *s);
 int		ft_strcmp(const char *s1, const char *s2);
 int		get_time(struct timeval *start_time);
-void	init_data(t_data *data, int argc, char *argv[]);
-void	init_spoons(pthread_mutex_t *spoons, int guests);
-t_philo	*init_philos(t_data *data);
-void	print(t_philo *philo, int action)
-void	print_error(t_data *data, int error);
+void	grab_spoons(t_philo *philo);
+int		init_data(t_data *data, int argc, char *argv[]);
+int		init_philos(t_data *data, t_philo **philos);
+int		init_spoons(pthread_mutex_t *spoons, int guests);
+void	print(t_philo *philo, int action);
+int		print_error(int error);
 void	release_spoons(t_philo *philo);
-void	routine(t_philos *philo);
+void	*routine(void *philo);
+void	sleep_ph(t_philo *philo);
+void	think(t_philo *philo);
 
 // Functions on trial
 

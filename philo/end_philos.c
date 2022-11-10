@@ -1,20 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   exit_philo.c                                       :+:      :+:    :+:   */
+/*   end_philos.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jpizarro <jpizarro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/19 17:45:36 by jpizarro          #+#    #+#             */
-/*   Updated: 2022/09/19 17:47:25 by jpizarro         ###   ########.fr       */
+/*   Created: 2022/11/10 15:09:32 by jpizarro          #+#    #+#             */
+/*   Updated: 2022/11/10 18:36:22 by jpizarro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-void	exit_philo(t_data *data)
+int	end_philos(t_philo *philos)
 {
-	if (data)
-		free_data(data);
-	exit(0);
+	int i;
+	int	ret;
+
+	i = -1;
+	ret = 0;
+	while (++i < philos->data->guests)
+		if (pthread_join(philos[i].th, NULL))
+			ret = print_error(ENDPHILO);
+	free (philos);
+	philos = NULL;
+	return (ret);
 }

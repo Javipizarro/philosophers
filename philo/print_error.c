@@ -6,13 +6,13 @@
 /*   By: jpizarro <jpizarro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/19 17:42:53 by jpizarro          #+#    #+#             */
-/*   Updated: 2022/10/20 21:22:53 by jpizarro         ###   ########.fr       */
+/*   Updated: 2022/11/10 18:32:16 by jpizarro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-void	print_error(t_data *data, int error)
+int	print_error(int error)
 {
 	if (error == ARGNUM)
 	{
@@ -26,5 +26,19 @@ void	print_error(t_data *data, int error)
 		printf("The arguments must be integers above 0 and below 2147483648\n");
 	else if (error == SETTIME)
 		printf("Error while setting time\n");
-	exit_philo(data);
+	else if (error == INITSPOONS)
+		printf("Error while initiating spoons\n");
+	else if (error == DESTRSPOONS)
+		printf("Error while detroying spoons\n");
+	else if (error == INITPRINTER)
+		printf("Error while initiating printer\n");
+	else if (error == DESTRPRINTER)
+		printf("Error while destroying printer\n");
+	else if (error == CREAPHILO)
+		printf("Error while creating philos\n");
+	else if (error == ENDPHILO)
+		printf("Error while ending philos\n");
+	else if (error == MALLOC)
+		printf("Error while using malloc(3)\n");
+	return (error);
 }

@@ -6,7 +6,7 @@
 /*   By: jpizarro <jpizarro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/19 13:43:53 by jpizarro          #+#    #+#             */
-/*   Updated: 2022/10/29 19:39:48 by jpizarro         ###   ########.fr       */
+/*   Updated: 2022/11/10 18:33:58 by jpizarro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,23 +20,37 @@ int	main(int argc, char *argv[])
 {
 	t_philo		*philos;
 	t_data		data;
-
-	check_args(argc, argv);
-	init_data(&data, argc, argv);
-	philos = init_philos(&data);
-
-
-//	printf("%d\n", data.start_time.tv_usec);
-
-	free_data(&data, &philos);
-	printf("todo correcto, de momento\n");
-	return (0);
+	int			ret;
+	
+	ret = 0;
+	ret = check_args(argc, argv);
+	if (!ret)
+	{
+		ret = init_data(&data, argc, argv);
+		if (!ret)
+		{
+			ret = init_philos(&data, &philos);
+			ret = end_philos(philos);
+////
+//	printf("hasta aquí OK\n");
+////
+		}
+		ret = free_data(&data);
+	}
+	return (ret);
 }
 
 
+
 // TO DO:
-//	- Finish the routine function
-//		- In eat() write check_fed
 //	- Prepare the exit of the program
+//		- Print all the errors
 //		- When someone died
 //		- When everyone is fed
+//		- Free all data and philos
+//		- Close all threads
+//		- Close all mutex
+
+// ERRORS:
+//		- When there is one philo, he eats!! // ./philo 1 300 200 200 10
+//		- Seg fault  // ./philo 3 300 200 200 10

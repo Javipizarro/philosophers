@@ -6,13 +6,13 @@
 /*   By: jpizarro <jpizarro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/19 17:49:01 by jpizarro          #+#    #+#             */
-/*   Updated: 2022/10/29 19:00:15 by jpizarro         ###   ########.fr       */
+/*   Updated: 2022/11/10 18:36:22 by jpizarro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-void	init_data(t_data *data, int argc, char *argv[])
+int	init_data(t_data *data, int argc, char *argv[])
 {
 	data->spoons = NULL;
 	data->guests= ft_atoi(argv[1]);
@@ -26,8 +26,11 @@ void	init_data(t_data *data, int argc, char *argv[])
 	data->deaths = 0;
 	data->spoons = (pthread_mutex_t *)
 		malloc(sizeof(pthread_mutex_t) * data->guests);
-	init_spoons (data->spoons, data->guests);
+	if (init_spoons(data->spoons, data->guests))
+		return (print_error(INITSPOONS));
 	if (gettimeofday(&data->start_time, NULL) < 0)
-		print_error(NULL, SETTIME);
-	pthread_mutex_init(&data->printer, NULL);
+		return (print_error(SETTIME));
+	if (pthread_mutex_init(&data->printer, NULL))
+		return (print_error(INITPRINTER));
+	return (0);
 }
