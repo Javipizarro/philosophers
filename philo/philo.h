@@ -6,7 +6,7 @@
 /*   By: jpizarro <jpizarro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/19 13:40:49 by jpizarro          #+#    #+#             */
-/*   Updated: 2022/11/10 18:40:55 by jpizarro         ###   ########.fr       */
+/*   Updated: 2022/11/14 22:46:48 by jpizarro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ int		ft_atoi(char const *str);
 int		ft_strisdigit(char *str);
 size_t	ft_strlen(const char *s);
 int		ft_strcmp(const char *s1, const char *s2);
-int		get_time(struct timeval *start_time);
+int		get_time(struct timeval start_time);
 void	grab_spoons(t_philo *philo);
 int		init_data(t_data *data, int argc, char *argv[]);
 int		init_philos(t_data *data, t_philo **philos);

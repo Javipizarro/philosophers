@@ -6,7 +6,7 @@
 /*   By: jpizarro <jpizarro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/19 13:43:53 by jpizarro          #+#    #+#             */
-/*   Updated: 2022/11/14 20:40:05 by jpizarro         ###   ########.fr       */
+/*   Updated: 2022/11/14 22:45:02 by jpizarro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,8 @@ int	main(int argc, char *argv[])
 
 
 // TO DO:
+//	- A message announcing a philosopher died should be displayed no more than 10 ms after the actual death of the philosopher.
+//	- The program does not exit when a philo dies.
 //	- Prepare the exit of the program
 //		- Print all the errors
 //		- When someone died

@@ -6,7 +6,7 @@
 /*   By: jpizarro <jpizarro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/29 18:53:14 by jpizarro          #+#    #+#             */
-/*   Updated: 2022/11/10 18:38:43 by jpizarro         ###   ########.fr       */
+/*   Updated: 2022/11/14 22:46:48 by jpizarro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	print(t_philo *philo, int action)
 {
 	int	time;
 
-	time = get_time(&philo->data->start_time);
+	time = get_time(philo->data->start_time);
 	if (time < 0)
 		print_error(SETTIME);
 	pthread_mutex_lock(&philo->data->printer);

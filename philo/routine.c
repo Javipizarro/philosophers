@@ -6,7 +6,7 @@
 /*   By: jpizarro <jpizarro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 16:25:41 by jpizarro          #+#    #+#             */
-/*   Updated: 2022/11/14 20:32:10 by jpizarro         ###   ########.fr       */
+/*   Updated: 2022/11/14 22:48:17 by jpizarro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,8 @@ void	*routine(void *philo_void)
 		eat(philo);
 		if (check_fed(philo))
 			break;
-//		sleep_ph(philo);
-//		think(philo);
+		sleep_ph(philo);
+		think(philo);
 	}
 
 	return (philo_void);
