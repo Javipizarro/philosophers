@@ -6,7 +6,7 @@
 /*   By: jpizarro <jpizarro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 16:15:26 by jpizarro          #+#    #+#             */
-/*   Updated: 2022/11/10 18:36:22 by jpizarro         ###   ########.fr       */
+/*   Updated: 2022/11/14 20:29:14 by jpizarro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	init_philos(t_data *data, t_philo **philos)
 {
-	int i;
+	short int i;
 
 	*philos = (t_philo *) malloc(sizeof(t_philo) * data->guests);
 	if (!*philos)
@@ -26,7 +26,7 @@ int	init_philos(t_data *data, t_philo **philos)
 		(*philos)[i].meals = 0;
 		(*philos)[i].data = data;
 		(*philos)[i].last_meal = (*philos)[i].data->start_time;
-		if (pthread_create(&(*philos)[i].th, NULL, &routine, philos[i]))
+		if (pthread_create(&(*philos)[i].th, NULL, &routine, &(*philos)[i]))
 			return (print_error(CREAPHILO));
 	}
 	return (0);

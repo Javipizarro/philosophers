@@ -6,7 +6,7 @@
 /*   By: jpizarro <jpizarro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/19 13:43:53 by jpizarro          #+#    #+#             */
-/*   Updated: 2022/11/10 18:33:58 by jpizarro         ###   ########.fr       */
+/*   Updated: 2022/11/14 20:40:05 by jpizarro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,4 +53,3 @@ int	main(int argc, char *argv[])
 
 // ERRORS:
 //		- When there is one philo, he eats!! // ./philo 1 300 200 200 10
-//		- Seg fault  // ./philo 3 300 200 200 10
