@@ -6,13 +6,16 @@
 /*   By: jpizarro <jpizarro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 13:22:15 by jpizarro          #+#    #+#             */
-/*   Updated: 2022/11/08 13:25:04 by jpizarro         ###   ########.fr       */
+/*   Updated: 2022/11/15 22:29:01 by jpizarro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-void	think(t_philo *philo)
+int	think(t_philo *philo)
 {
+	if (check_alive(philo) || philo->data->deaths)
+		return (1);
 	print(philo, THINKING);
+	return (0);
 }

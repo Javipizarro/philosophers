@@ -6,7 +6,7 @@
 /*   By: jpizarro <jpizarro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/19 13:40:49 by jpizarro          #+#    #+#             */
-/*   Updated: 2022/11/14 22:46:48 by jpizarro         ###   ########.fr       */
+/*   Updated: 2022/11/15 22:46:22 by jpizarro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,9 +47,9 @@ typedef struct	s_data
 	struct timeval	start_time;
 //	struct timeval	end_time;
 	int				guests;
-	useconds_t		die_time;
-	useconds_t		eat_time;
-	useconds_t		sleep_time;
+	int				die_time;
+	int				eat_time;
+	int				sleep_time;
 	int				meals;
 	char			deaths;
 //	t_philo			*philos;
@@ -63,7 +63,7 @@ typedef struct	s_philo
 	pthread_t		th;
 	int				meals;
 	struct timeval	last_meal;
-	struct timeval	this_meal;
+//	struct timeval	this_meal;
 	t_data			*data;
 //	char			state;
 ////	char			spoon;
@@ -75,7 +75,7 @@ int		check_args(int argc, char *argv[]);
 int		check_alive(t_philo *philo);
 int		check_fed(t_philo *philo);
 int		destroy_spoons(pthread_mutex_t *spoons, int guests);
-void	eat(t_philo *philo);
+int		eat(t_philo *philo);
 int		end_philos(t_philo *philos);
 //void	exit_philo(t_data *data);
 int		free_data(t_data *data);
@@ -83,17 +83,17 @@ int		ft_atoi(char const *str);
 int		ft_strisdigit(char *str);
 size_t	ft_strlen(const char *s);
 int		ft_strcmp(const char *s1, const char *s2);
-int		get_time(struct timeval start_time);
-void	grab_spoons(t_philo *philo);
+int		grab_spoons(t_philo *philo);
 int		init_data(t_data *data, int argc, char *argv[]);
 int		init_philos(t_data *data, t_philo **philos);
 int		init_spoons(pthread_mutex_t *spoons, int guests);
+int		usec_since(struct timeval ref_time);
 void	print(t_philo *philo, int action);
 int		print_error(int error);
 void	release_spoons(t_philo *philo);
 void	*routine(void *philo);
-void	sleep_ph(t_philo *philo);
-void	think(t_philo *philo);
+int		sleep_ph(t_philo *philo);
+int		think(t_philo *philo);
 
 // Functions on trial
 
