@@ -6,7 +6,7 @@
 /*   By: jpizarro <jpizarro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/19 13:43:53 by jpizarro          #+#    #+#             */
-/*   Updated: 2022/11/17 22:11:40 by jpizarro         ###   ########.fr       */
+/*   Updated: 2022/11/17 22:26:35 by jpizarro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,6 @@ int	main(int argc, char *argv[])
 		{
 			ret = init_philos(&data, &philos);
 			ret = end_philos(philos);
-////
-//	printf("hasta aquí OK\n");
-////
 		}
 		ret = free_data(&data);
 	}
@@ -43,7 +40,6 @@ int	main(int argc, char *argv[])
 
 
 // TO DO:
-//	- When a philo dies, the program does't exit correctly
 //	- Prepare the exit of the program
 //		- Print all the errors
 //		- When someone died
