@@ -6,7 +6,7 @@
 /*   By: jpizarro <jpizarro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/19 13:40:49 by jpizarro          #+#    #+#             */
-/*   Updated: 2022/11/15 22:46:22 by jpizarro         ###   ########.fr       */
+/*   Updated: 2022/11/17 21:18:37 by jpizarro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,13 +87,14 @@ int		grab_spoons(t_philo *philo);
 int		init_data(t_data *data, int argc, char *argv[]);
 int		init_philos(t_data *data, t_philo **philos);
 int		init_spoons(pthread_mutex_t *spoons, int guests);
-int		usec_since(struct timeval ref_time);
+int		philo_is_busy(t_philo *philo, int task);
 void	print(t_philo *philo, int action);
 int		print_error(int error);
 void	release_spoons(t_philo *philo);
 void	*routine(void *philo);
 int		sleep_ph(t_philo *philo);
 int		think(t_philo *philo);
+int		usec_since(struct timeval ref_time);
 
 // Functions on trial
 

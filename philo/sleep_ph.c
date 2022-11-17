@@ -6,7 +6,7 @@
 /*   By: jpizarro <jpizarro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 13:14:36 by jpizarro          #+#    #+#             */
-/*   Updated: 2022/11/15 22:28:53 by jpizarro         ###   ########.fr       */
+/*   Updated: 2022/11/17 22:11:41 by jpizarro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ int	sleep_ph(t_philo *philo)
 	if (check_alive(philo) || philo->data->deaths)
 		return (1);
 	print(philo, SLEEPING);
-	usleep(philo->data->sleep_time);
+	if (philo_is_busy(philo, SLEEPING))
+		return (1);
 	return (0);
 }
