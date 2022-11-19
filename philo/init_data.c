@@ -6,7 +6,7 @@
 /*   By: jpizarro <jpizarro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/19 17:49:01 by jpizarro          #+#    #+#             */
-/*   Updated: 2022/11/15 22:44:35 by jpizarro         ###   ########.fr       */
+/*   Updated: 2022/11/19 18:39:18 by jpizarro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	init_data(t_data *data, int argc, char *argv[])
 {
 	data->spoons = NULL;
-	data->guests= ft_atoi(argv[1]);
+	data->guests = ft_atoi(argv[1]);
 	data->die_time = ft_atoi(argv[2]) * 1000;
 	data->eat_time = ft_atoi(argv[3]) * 1000;
 	data->sleep_time = ft_atoi(argv[4]) * 1000;

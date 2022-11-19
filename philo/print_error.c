@@ -6,7 +6,7 @@
 /*   By: jpizarro <jpizarro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/19 17:42:53 by jpizarro          #+#    #+#             */
-/*   Updated: 2022/11/10 18:32:16 by jpizarro         ###   ########.fr       */
+/*   Updated: 2022/11/19 18:32:20 by jpizarro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,6 @@ int	print_error(int error)
 		printf("nbr_of_philosophers   time_to_die   time_to_eat   ");
 		printf("time_to_sleep   [number_of_times_each_philosopher_must_eat]\n");
 	}
-	else if (error == ARGDIG)
-		printf("The arguments must contain only digits\n");
 	else if (error == ARGINT)
 		printf("The arguments must be integers above 0 and below 2147483648\n");
 	else if (error == SETTIME)

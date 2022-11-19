@@ -6,7 +6,7 @@
 /*   By: jpizarro <jpizarro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 16:15:26 by jpizarro          #+#    #+#             */
-/*   Updated: 2022/11/14 20:29:14 by jpizarro         ###   ########.fr       */
+/*   Updated: 2022/11/19 18:38:54 by jpizarro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	init_philos(t_data *data, t_philo **philos)
 {
-	short int i;
+	short int	i;
 
 	*philos = (t_philo *) malloc(sizeof(t_philo) * data->guests);
 	if (!*philos)

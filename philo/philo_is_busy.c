@@ -6,7 +6,7 @@
 /*   By: jpizarro <jpizarro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 20:55:35 by jpizarro          #+#    #+#             */
-/*   Updated: 2022/11/17 21:54:17 by jpizarro         ###   ########.fr       */
+/*   Updated: 2022/11/19 18:19:54 by jpizarro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,13 +23,13 @@ int	philo_is_busy(t_philo *philo, int task)
 	int				time;
 	struct timeval	start;
 
-	if (task == EATING)
-		time = philo->data->eat_time;
-	else
+	time = philo->data->die_time + 100000;
+	if (task == SLEEPING)
 		time = philo->data->sleep_time;
-	if (task == EATING)
-		start = philo->last_meal;
-	else
+	else if (task == EATING)
+		time = philo->data->eat_time;
+	start = philo->last_meal;
+	if (task == SLEEPING)
 		if (gettimeofday(&start, NULL) < 0)
 			print_error(SETTIME);
 	while (usec_since(start) < time)

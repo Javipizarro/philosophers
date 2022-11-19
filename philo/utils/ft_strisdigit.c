@@ -6,7 +6,7 @@
 /*   By: jpizarro <jpizarro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/11 14:30:23 by jpizarro          #+#    #+#             */
-/*   Updated: 2022/09/20 21:37:27 by jpizarro         ###   ########.fr       */
+/*   Updated: 2022/11/19 18:26:05 by jpizarro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 
 int	ft_strisdigit(char *str)
 {
-	int i;
+	int	i;
 
 	i = -1;
 	while (str[++i])

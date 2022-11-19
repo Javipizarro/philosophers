@@ -6,7 +6,7 @@
 /*   By: jpizarro <jpizarro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 15:09:32 by jpizarro          #+#    #+#             */
-/*   Updated: 2022/11/10 18:36:22 by jpizarro         ###   ########.fr       */
+/*   Updated: 2022/11/19 18:41:26 by jpizarro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	end_philos(t_philo *philos)
 {
-	int i;
+	int	i;
 	int	ret;
 
 	i = -1;

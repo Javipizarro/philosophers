@@ -6,7 +6,7 @@
 /*   By: jpizarro <jpizarro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/19 13:40:49 by jpizarro          #+#    #+#             */
-/*   Updated: 2022/11/17 21:18:37 by jpizarro         ###   ########.fr       */
+/*   Updated: 2022/11/19 18:37:09 by jpizarro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@
 
 // ERROR DEFINITION
 # define ARGNUM -3
-# define ARGDIG -4
 # define ARGINT -5
 # define SETTIME -6
 # define INITSPOONS -7
@@ -40,44 +39,33 @@
 # define SLEEPING 3
 # define THINKING 4
 
-typedef struct	s_data
+typedef struct s_data
 {
-//	struct timeval	*start_time;
-//	struct timeval	*end_time;
 	struct timeval	start_time;
-//	struct timeval	end_time;
 	int				guests;
 	int				die_time;
 	int				eat_time;
 	int				sleep_time;
 	int				meals;
 	char			deaths;
-//	t_philo			*philos;
 	pthread_mutex_t	*spoons;
 	pthread_mutex_t	printer;
 }				t_data;
 
-typedef struct	s_philo
+typedef struct s_philo
 {
 	int				id;
 	pthread_t		th;
 	int				meals;
 	struct timeval	last_meal;
-//	struct timeval	this_meal;
 	t_data			*data;
-//	char			state;
-////	char			spoon;
-////	struct s_philo	*next;
 }				t_philo;
 
-
-int		check_args(int argc, char *argv[]);
 int		check_alive(t_philo *philo);
 int		check_fed(t_philo *philo);
 int		destroy_spoons(pthread_mutex_t *spoons, int guests);
 int		eat(t_philo *philo);
 int		end_philos(t_philo *philos);
-//void	exit_philo(t_data *data);
 int		free_data(t_data *data);
 int		ft_atoi(char const *str);
 int		ft_strisdigit(char *str);
@@ -95,7 +83,6 @@ void	*routine(void *philo);
 int		sleep_ph(t_philo *philo);
 int		think(t_philo *philo);
 int		usec_since(struct timeval ref_time);
-
-// Functions on trial
+int		wrong_args(int argc, char *argv[]);
 
 #endif

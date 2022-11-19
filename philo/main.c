@@ -6,7 +6,7 @@
 /*   By: jpizarro <jpizarro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/19 13:43:53 by jpizarro          #+#    #+#             */
-/*   Updated: 2022/11/17 22:26:35 by jpizarro         ###   ########.fr       */
+/*   Updated: 2022/11/19 18:37:36 by jpizarro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@ int	main(int argc, char *argv[])
 	t_philo		*philos;
 	t_data		data;
 	int			ret;
-	
+
 	ret = 0;
-	ret = check_args(argc, argv);
+	ret = wrong_args(argc, argv);
 	if (!ret)
 	{
 		ret = init_data(&data, argc, argv);
@@ -36,17 +36,3 @@ int	main(int argc, char *argv[])
 	}
 	return (ret);
 }
-
-
-
-// TO DO:
-//	- Prepare the exit of the program
-//		- Print all the errors
-//		- When someone died
-//		- When everyone is fed
-//		- Free all data and philos
-//		- Close all threads
-//		- Close all mutex
-
-// ERRORS:
-//		- When there is one philo, he eats!! // ./philo 1 300 200 200 10
