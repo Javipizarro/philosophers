@@ -6,7 +6,7 @@
 /*   By: jpizarro <jpizarro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 20:55:35 by jpizarro          #+#    #+#             */
-/*   Updated: 2022/11/19 18:19:54 by jpizarro         ###   ########.fr       */
+/*   Updated: 2022/11/19 21:54:18 by jpizarro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int	philo_is_busy(t_philo *philo, int task)
 			print_error(SETTIME);
 	while (usec_since(start) < time)
 	{
-		usleep(9000);
+		usleep(100 + 5 * philo->data->guests);
 		if (check_alive(philo) || philo->data->deaths)
 			return (1);
 	}

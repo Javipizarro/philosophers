@@ -6,7 +6,7 @@
 /*   By: jpizarro <jpizarro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 16:15:26 by jpizarro          #+#    #+#             */
-/*   Updated: 2022/11/19 18:38:54 by jpizarro         ###   ########.fr       */
+/*   Updated: 2022/11/19 23:11:34 by jpizarro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	init_philos(t_data *data, t_philo **philos)
 	while (++i < data->guests)
 	{
 		(*philos)[i].id = i;
-		(*philos)[i].meals = 0;
+		(*philos)[i].eaten = 0;
 		(*philos)[i].data = data;
 		(*philos)[i].last_meal = (*philos)[i].data->start_time;
 		if (pthread_create(&(*philos)[i].th, NULL, &routine, &(*philos)[i]))

@@ -6,7 +6,7 @@
 /*   By: jpizarro <jpizarro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/29 18:53:14 by jpizarro          #+#    #+#             */
-/*   Updated: 2022/11/15 22:47:39 by jpizarro         ###   ########.fr       */
+/*   Updated: 2022/11/19 22:11:28 by jpizarro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	print(t_philo *philo, int action)
 	pthread_mutex_lock(&philo->data->printer);
 	if (!philo->data->deaths)
 	{
-		printf("%d %d ", time, philo->id + 1);
+		printf("%d %d ", time, philo->id /*+ 1*/);
 		if (action == SPOON)
 			printf("has taken a fork\n");
 		else if (action == EATING)

@@ -6,7 +6,7 @@
 /*   By: jpizarro <jpizarro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/19 13:40:49 by jpizarro          #+#    #+#             */
-/*   Updated: 2022/11/19 18:37:09 by jpizarro         ###   ########.fr       */
+/*   Updated: 2022/11/19 23:17:47 by jpizarro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,9 +54,10 @@ typedef struct s_data
 
 typedef struct s_philo
 {
-	int				id;
+	unsigned char	id;
 	pthread_t		th;
-	int				meals;
+//	short int		meals;
+	short int		eaten;
 	struct timeval	last_meal;
 	t_data			*data;
 }				t_philo;

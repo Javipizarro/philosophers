@@ -6,7 +6,7 @@
 /*   By: jpizarro <jpizarro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 16:08:30 by jpizarro          #+#    #+#             */
-/*   Updated: 2022/11/19 18:38:18 by jpizarro         ###   ########.fr       */
+/*   Updated: 2022/11/19 21:42:14 by jpizarro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	init_spoons(pthread_mutex_t *spoons, int guests)
 {
-	while (guests-- > 0)
+	while (guests--)
 		if (pthread_mutex_init(spoons + guests, NULL))
 			return (1);
 	return (0);
