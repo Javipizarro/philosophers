@@ -6,7 +6,7 @@
 /*   By: jpizarro <jpizarro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/19 13:40:49 by jpizarro          #+#    #+#             */
-/*   Updated: 2022/11/19 23:17:47 by jpizarro         ###   ########.fr       */
+/*   Updated: 2022/12/05 21:06:03 by jpizarro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,15 +22,15 @@
 
 // ERROR DEFINITION
 # define ARGNUM -3
-# define ARGINT -5
-# define SETTIME -6
-# define INITSPOONS -7
-# define DESTRSPOONS -8
-# define INITPRINTER -9
-# define DESTRPRINTER -10
-# define CREAPHILO -11
-# define ENDPHILO -12
-# define MALLOC -13
+# define ARGINT -4
+# define SETTIME -5
+# define INITSPOONS -6
+# define DESTRSPOONS -7
+# define INITPRINTER -8
+# define DESTRPRINTER -9
+# define CREAPHILO -10
+# define ENDPHILO -11
+# define MALLOC -12
 
 // PHILOS STATES DEFINITION
 # define NONE 0
