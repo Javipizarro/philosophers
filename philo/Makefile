@@ -6,7 +6,7 @@
 #    By: jpizarro <jpizarro@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/19 11:24:00 by jpizarro          #+#    #+#              #
-#    Updated: 2022/11/19 23:16:57 by jpizarro         ###   ########.fr        #
+#    Updated: 2022/12/15 17:57:50 by jpizarro         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,8 +25,8 @@ CC = gcc
 RM = rm -f
 
 #CFLAGS = -Wall -Werror -Wextra
-CFLAGS = -Wall -Werror -Wextra -g
-#CFLAGS = -Wall -Werror -Wextra -fsanitize=thread -g
+#CFLAGS = -Wall -Werror -Wextra -g
+CFLAGS = -Wall -Werror -Wextra -fsanitize=thread -g
 
 all: $(NAME)
 

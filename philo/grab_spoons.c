@@ -6,7 +6,7 @@
 /*   By: jpizarro <jpizarro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/29 16:06:29 by jpizarro          #+#    #+#             */
-/*   Updated: 2022/11/19 22:25:49 by jpizarro         ###   ########.fr       */
+/*   Updated: 2022/12/15 18:35:04 by jpizarro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	grab_spoons(t_philo *philo)
 	spoon_1 = (philo->id + philo->id % 2) % philo->data->guests;
 	spoon_2 = (philo->id + 1 - philo->id % 2) % philo->data->guests;
 	pthread_mutex_lock(&philo->data->spoons[spoon_1]);
-	if (check_alive(philo) || philo->data->deaths)
+	if (check_alive(philo) || check_deaths(philo))
 	{	
 		pthread_mutex_unlock(&philo->data->spoons[spoon_1]);
 		return (1);
@@ -32,7 +32,7 @@ int	grab_spoons(t_philo *philo)
 		return (philo_is_busy(philo, NONE));
 	}
 	pthread_mutex_lock(&philo->data->spoons[spoon_2]);
-	if (check_alive(philo) || philo->data->deaths)
+	if (check_alive(philo) || check_deaths(philo))
 	{	
 		release_spoons(philo);
 		return (1);

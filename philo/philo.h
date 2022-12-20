@@ -6,7 +6,7 @@
 /*   By: jpizarro <jpizarro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/19 13:40:49 by jpizarro          #+#    #+#             */
-/*   Updated: 2022/12/05 21:06:03 by jpizarro         ###   ########.fr       */
+/*   Updated: 2022/12/15 18:32:30 by jpizarro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ typedef struct s_data
 	char			deaths;
 	pthread_mutex_t	*spoons;
 	pthread_mutex_t	printer;
+	pthread_mutex_t	death;
 }				t_data;
 
 typedef struct s_philo
@@ -63,6 +64,7 @@ typedef struct s_philo
 }				t_philo;
 
 int		check_alive(t_philo *philo);
+int		check_deaths(t_philo *philo);
 int		check_fed(t_philo *philo);
 int		destroy_spoons(pthread_mutex_t *spoons, int guests);
 int		eat(t_philo *philo);

@@ -6,7 +6,7 @@
 /*   By: jpizarro <jpizarro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 20:50:07 by jpizarro          #+#    #+#             */
-/*   Updated: 2022/11/19 22:26:01 by jpizarro         ###   ########.fr       */
+/*   Updated: 2022/12/15 18:33:05 by jpizarro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	eat(t_philo *philo)
 		print_error(SETTIME);
 	philo_is_busy(philo, EATING);
 	release_spoons(philo);
-	if (check_fed(philo) || check_alive(philo) || philo->data->deaths)
+	if (check_fed(philo) || check_alive(philo) || check_deaths(philo))
 		return (1);
 	return (0);
 }

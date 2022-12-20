@@ -6,7 +6,7 @@
 /*   By: jpizarro <jpizarro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/29 18:53:14 by jpizarro          #+#    #+#             */
-/*   Updated: 2022/11/19 22:11:28 by jpizarro         ###   ########.fr       */
+/*   Updated: 2022/12/20 20:04:02 by jpizarro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	print(t_philo *philo, int action)
 	if (time < 0)
 		print_error(SETTIME);
 	pthread_mutex_lock(&philo->data->printer);
-	if (!philo->data->deaths)
+	if (!check_deaths(philo))
 	{
 		printf("%d %d ", time, philo->id /*+ 1*/);
 		if (action == SPOON)
@@ -33,7 +33,7 @@ void	print(t_philo *philo, int action)
 			printf("is thinking\n");
 		else if (action == NONE)
 		{
-			philo->data->deaths++;
+//			philo->data->deaths++;
 			printf("died\n");
 		}
 	}

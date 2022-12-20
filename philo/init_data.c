@@ -6,7 +6,7 @@
 /*   By: jpizarro <jpizarro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/19 17:49:01 by jpizarro          #+#    #+#             */
-/*   Updated: 2022/11/19 23:10:49 by jpizarro         ###   ########.fr       */
+/*   Updated: 2022/12/15 17:59:25 by jpizarro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ int	init_data(t_data *data, int argc, char *argv[])
 	if (gettimeofday(&data->start_time, NULL) < 0)
 		return (print_error(SETTIME));
 	if (pthread_mutex_init(&data->printer, NULL))
+		return (print_error(INITPRINTER));
+	if (pthread_mutex_init(&data->death, NULL))
 		return (print_error(INITPRINTER));
 	return (0);
 }
