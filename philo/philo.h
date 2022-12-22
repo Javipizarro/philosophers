@@ -6,7 +6,7 @@
 /*   By: jpizarro <jpizarro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/19 13:40:49 by jpizarro          #+#    #+#             */
-/*   Updated: 2022/12/15 18:32:30 by jpizarro         ###   ########.fr       */
+/*   Updated: 2022/12/22 20:02:22 by jpizarro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@
 # define SETTIME -5
 # define INITSPOONS -6
 # define DESTRSPOONS -7
-# define INITPRINTER -8
-# define DESTRPRINTER -9
+# define INITMUTEX -8
+# define DESTRMUTEX -9
 # define CREAPHILO -10
 # define ENDPHILO -11
 # define MALLOC -12
@@ -47,10 +47,12 @@ typedef struct s_data
 	int				eat_time;
 	int				sleep_time;
 	int				meals;
-	char			deaths;
+	int				fed;
+	char			dead;
 	pthread_mutex_t	*spoons;
-	pthread_mutex_t	printer;
-	pthread_mutex_t	death;
+	pthread_mutex_t	print_mtx;
+	pthread_mutex_t	dead_mtx;
+	pthread_mutex_t fed_mtx;
 }				t_data;
 
 typedef struct s_philo

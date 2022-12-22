@@ -6,7 +6,7 @@
 /*   By: jpizarro <jpizarro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/19 17:49:01 by jpizarro          #+#    #+#             */
-/*   Updated: 2022/12/15 17:59:25 by jpizarro         ###   ########.fr       */
+/*   Updated: 2022/12/22 20:02:22 by jpizarro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,16 +23,18 @@ int	init_data(t_data *data, int argc, char *argv[])
 		data->meals = ft_atoi(argv[5]);
 	else
 		data->meals = -1;
-	data->deaths = 0;
+	data->dead = 0;
 	data->spoons = (pthread_mutex_t *)
 		malloc(sizeof(pthread_mutex_t) * data->guests);
 	if (init_spoons(data->spoons, data->guests))
 		return (print_error(INITSPOONS));
 	if (gettimeofday(&data->start_time, NULL) < 0)
 		return (print_error(SETTIME));
-	if (pthread_mutex_init(&data->printer, NULL))
-		return (print_error(INITPRINTER));
-	if (pthread_mutex_init(&data->death, NULL))
-		return (print_error(INITPRINTER));
+	if (pthread_mutex_init(&data->print_mtx, NULL))
+		return (print_error(INITMUTEX));
+	if (pthread_mutex_init(&data->dead_mtx, NULL))
+		return (print_error(INITMUTEX));
+	if (pthread_mutex_init(&data->fed_mtx, NULL))
+		return (print_error(INITMUTEX));
 	return (0);
 }
