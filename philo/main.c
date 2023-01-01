@@ -6,7 +6,7 @@
 /*   By: jpizarro <jpizarro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/19 13:43:53 by jpizarro          #+#    #+#             */
-/*   Updated: 2022/11/19 18:37:36 by jpizarro         ###   ########.fr       */
+/*   Updated: 2023/01/01 21:33:24 by jpizarro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,9 @@ int	main(int argc, char *argv[])
 		if (!ret)
 		{
 			ret = init_philos(&data, &philos);
-			ret = end_philos(philos);
+			ret += end_philos(philos);
 		}
-		ret = free_data(&data);
+		ret += free_data(&data);
 	}
 	return (ret);
 }

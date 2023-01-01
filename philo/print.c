@@ -6,7 +6,7 @@
 /*   By: jpizarro <jpizarro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/29 18:53:14 by jpizarro          #+#    #+#             */
-/*   Updated: 2022/12/22 20:02:22 by jpizarro         ###   ########.fr       */
+/*   Updated: 2023/01/01 22:42:47 by jpizarro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	print(t_philo *philo, int action)
 	pthread_mutex_lock(&philo->data->print_mtx);
 	if (!check_deaths(philo))
 	{
-		printf("%d %d ", time, philo->id /*+ 1*/);
+		printf("%d %d ", time, philo->id + 1);
 		if (action == SPOON)
 			printf("has taken a fork\n");
 		else if (action == EATING)
@@ -33,8 +33,8 @@ void	print(t_philo *philo, int action)
 			printf("is thinking\n");
 		else if (action == NONE)
 		{
-//			philo->data->dead++;
 			printf("died\n");
+			add_to_dead(philo);
 		}
 	}
 	pthread_mutex_unlock(&philo->data->print_mtx);

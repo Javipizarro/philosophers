@@ -6,7 +6,7 @@
 /*   By: jpizarro <jpizarro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/19 13:40:49 by jpizarro          #+#    #+#             */
-/*   Updated: 2022/12/22 20:02:22 by jpizarro         ###   ########.fr       */
+/*   Updated: 2023/01/01 22:40:55 by jpizarro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,7 @@ typedef struct s_philo
 	t_data			*data;
 }				t_philo;
 
+void	add_to_dead(t_philo *philo);
 int		check_alive(t_philo *philo);
 int		check_deaths(t_philo *philo);
 int		check_fed(t_philo *philo);

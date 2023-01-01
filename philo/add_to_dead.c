@@ -1,31 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free_data.c                                        :+:      :+:    :+:   */
+/*   add_to_dead.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jpizarro <jpizarro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/19 17:48:07 by jpizarro          #+#    #+#             */
-/*   Updated: 2023/01/01 21:54:19 by jpizarro         ###   ########.fr       */
+/*   Created: 2023/01/01 22:36:11 by jpizarro          #+#    #+#             */
+/*   Updated: 2023/01/01 22:43:26 by jpizarro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-int	free_data(t_data *data)
+void add_to_dead(t_philo *philo)
 {
-	int	ret;
-
-	ret = 0;
-	if (destroy_spoons(data->spoons, data->guests))
-		ret = print_error(DESTRSPOONS);
-	if (data->spoons)
-		free(data->spoons);
-	if (pthread_mutex_destroy(&data->print_mtx))
-		ret = print_error(DESTRMUTEX);
-	if (pthread_mutex_destroy(&data->dead_mtx))
-		ret = print_error(DESTRMUTEX);
-	if (pthread_mutex_destroy(&data->fed_mtx))
-		ret = print_error(DESTRMUTEX);
-	return (ret);
+	pthread_mutex_lock(&philo->data->dead_mtx);
+	philo->data->dead++;
+	pthread_mutex_unlock(&philo->data->dead_mtx);
 }

@@ -6,7 +6,7 @@
 /*   By: jpizarro <jpizarro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/19 17:49:01 by jpizarro          #+#    #+#             */
-/*   Updated: 2022/12/22 20:02:22 by jpizarro         ###   ########.fr       */
+/*   Updated: 2023/01/01 22:08:10 by jpizarro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ int	init_data(t_data *data, int argc, char *argv[])
 		data->meals = ft_atoi(argv[5]);
 	else
 		data->meals = -1;
+	data->fed =0;
 	data->dead = 0;
 	data->spoons = (pthread_mutex_t *)
 		malloc(sizeof(pthread_mutex_t) * data->guests);
