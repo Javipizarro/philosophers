@@ -6,7 +6,7 @@
 /*   By: jpizarro <jpizarro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/19 13:40:49 by jpizarro          #+#    #+#             */
-/*   Updated: 2023/01/01 22:40:55 by jpizarro         ###   ########.fr       */
+/*   Updated: 2023/01/03 14:37:58 by jpizarro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,14 +52,13 @@ typedef struct s_data
 	pthread_mutex_t	*spoons;
 	pthread_mutex_t	print_mtx;
 	pthread_mutex_t	dead_mtx;
-	pthread_mutex_t fed_mtx;
+	pthread_mutex_t	fed_mtx;
 }				t_data;
 
 typedef struct s_philo
 {
 	unsigned char	id;
 	pthread_t		th;
-//	short int		meals;
 	short int		eaten;
 	struct timeval	last_meal;
 	t_data			*data;

@@ -6,7 +6,7 @@
 /*   By: jpizarro <jpizarro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 12:39:14 by jpizarro          #+#    #+#             */
-/*   Updated: 2023/01/01 22:31:14 by jpizarro         ###   ########.fr       */
+/*   Updated: 2023/01/03 14:39:12 by jpizarro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	check_fed(t_philo *philo)
 		pthread_mutex_unlock(&philo->data->fed_mtx);
 	}
 	pthread_mutex_lock(&philo->data->fed_mtx);
-	if (philo->data->fed == philo->data->meals)
+	if (philo->data->fed == philo->data->guests)
 	{
 		pthread_mutex_unlock(&philo->data->fed_mtx);
 		return (1);

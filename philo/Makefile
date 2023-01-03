@@ -6,7 +6,7 @@
 #    By: jpizarro <jpizarro@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/19 11:24:00 by jpizarro          #+#    #+#              #
-#    Updated: 2022/12/15 17:57:50 by jpizarro         ###   ########.fr        #
+#    Updated: 2023/01/03 14:36:19 by jpizarro         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,15 +18,13 @@ SRCS =	$(wildcard *.c) $(wildcard utils/*.c)
 
 OBJS = $(SRCS:.c=.o)
 
-#STATICS = $(LIBS:.h=.a)
-
 CC = gcc
 
 RM = rm -f
 
-#CFLAGS = -Wall -Werror -Wextra
+CFLAGS = -Wall -Werror -Wextra
 #CFLAGS = -Wall -Werror -Wextra -g
-CFLAGS = -Wall -Werror -Wextra -fsanitize=thread -g
+#CFLAGS = -Wall -Werror -Wextra -fsanitize=thread -g
 
 all: $(NAME)
 
@@ -37,11 +35,6 @@ $(NAME): $(OBJS) $(STATICS)
 
 %.o: %.c
 	@$(CC) $(CFLAGS) $(CPPFLAGS) -c $< -o $(<:.c=.o)
-
-#$(STATICS):
-#	cd libft/ && $(MAKE)
-#	cd pipex/ && $(MAKE)
-#	@make -sC ./libft
 
 clean:
 	@echo "Cleaing up binary files"
